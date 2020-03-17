@@ -1,0 +1,41 @@
+<div class="container card">
+    <br>
+    <div class="card-body">
+        <h2>Loja virtual</h2>
+        <div class="card">
+            <div class="card-body mb-0" *ngFor="let item of produtos">
+                <h4>{{ item.descricao }}</h4>
+                <p>{{ item.valor }}</p>
+                <div class="">
+                    <button class="btn btn-warning btn-sm btn-block" (click)="adicionar(item)"> Comprar</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h2>Carrinho</h2>
+        <div class="card">
+            <div class="card-body mb-0">
+                <table class="table table-striped table-light table-sm  table-bordered table-hover shadow-s, p-3 mb-5 bg-white rounded">
+                    <thead>
+                        <tr>
+                            <th>Descricão</th>
+                            <th>Unidade</th>
+                            <th class="text-right">Preço</th>
+                        </tr>
+                        <tbody>
+                            <tr *ngFor="let item of carrinho">
+                                <td>{{ item.produto.descricao }}</td>
+                                <td>{{ item.unidade }}</td>
+                                <td>{{ item.valor }}</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <h5>Total da compra</h5>
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+</div>

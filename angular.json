@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "lojaVirtualComCarrinho": {
@@ -104,6 +104,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lojaVirtualComCarrinho"
+    }
+  },
+  "defaultProject": "lojaVirtualComCarrinho",
+  "cli": {
+    "analytics": "a90f5680-9894-4e6d-b3e1-a104a3f5ce68"
+  }
 }
