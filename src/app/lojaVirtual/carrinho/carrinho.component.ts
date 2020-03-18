@@ -10,6 +10,7 @@ import { Carrinho } from './models/carrinho';
 export class CarrinhoComponent implements OnInit {
 
   carrinho: Carrinho[] = []
+  totalCompra: number = 0;
 
   constructor() { }
 
@@ -30,8 +31,18 @@ export class CarrinhoComponent implements OnInit {
   }
 
   adicionar(item: Produto) {
-    this.carrinho.push(new Carrinho (item, 1, item.valor))
-    console.log(this.carrinho)
+    if (this.carrinho.find(produto => produto.produto.id === item.id)) {
+      let produtoAtualizar = this.carrinho.findIndex(produto => produto.produto.id === item.id);
+      this.carrinho[produtoAtualizar].valorTotal += item.valor;
+      this.carrinho[produtoAtualizar].unidade += 1;
+    }
+    else {
+      let oCarrinho = {produto: item, unidade: 1, valorTotal: item.valor}
+      this.carrinho.push(oCarrinho)
+      console.log(this.carrinho)
+    }
+    var valores = this.carrinho.map(item => item.valorTotal)
+    this.totalCompra = valores.reduce((a, b) => a + b, 0);
   }
 
 }
